@@ -1,14 +1,10 @@
-enum Role {
-	ADMIN,
-	READ_ONLY,
-	AUTHOR,
+function add(n1: number | string, n2: number | string) {
+	let result
+	if (typeof n1 === "number" && typeof n2 === "number") result = n1 + n2
+	else result = n1.toString() + n2.toString()
+	return result
 }
 
-const person: { name: string; age: number; hobbies: string[]; role: Role } = {
-	name: "Jason",
-	age: 36,
-	hobbies: ["Video Games", "Reading"],
-	role: Role.ADMIN,
-}
-
-console.log(person)
+console.log(add(1, 2))
+console.log(add('Hello', ' World'))
+console.log(add(1, 'Testing'))
