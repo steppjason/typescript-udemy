@@ -1,16 +1,13 @@
-class Department {
+abstract class Department {
 	protected employees: string[] = []
 
 	constructor(protected readonly name: string) {}
 
-	static createEmployee(name: string)
-	{
-		return {name: name}
+	static createEmployee(name: string) {
+		return { name: name }
 	}
 
-	describe(this: Department) {
-		console.log("Department: " + this.name)
-	}
+	abstract describe(this: Department): void
 
 	addEmployee(employee: string) {
 		this.employees.push(employee)
@@ -39,6 +36,10 @@ class ITDepartment extends Department {
 		this.lastReport = ""
 	}
 
+	describe() {
+		console.log(this.name)
+	}
+
 	printAdmins() {
 		console.log(this.admins)
 	}
@@ -50,16 +51,18 @@ class ITDepartment extends Department {
 	}
 }
 
-const accounting = new Department("Accounting")
-accounting.addEmployee("Jason")
-accounting.addEmployee("Anna")
+// const accounting = new Department("Accounting")
+// accounting.addEmployee("Jason")
+// accounting.addEmployee("Anna")
 
-accounting.printEmployeeInformation()
+// accounting.printEmployeeInformation()
 
 const informationTechnology = new ITDepartment(["Jason"])
 informationTechnology.printAdmins()
 informationTechnology.LastReport = "New Report"
 console.log(informationTechnology.LastReport)
 
-const employee1 = Department.createEmployee('Tim')
+const employee1 = Department.createEmployee("Tim")
 console.log(employee1)
+
+informationTechnology.describe()

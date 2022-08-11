@@ -7,9 +7,6 @@ class Department {
     static createEmployee(name) {
         return { name: name };
     }
-    describe() {
-        console.log("Department: " + this.name);
-    }
     addEmployee(employee) {
         this.employees.push(employee);
     }
@@ -32,6 +29,9 @@ class ITDepartment extends Department {
     set LastReport(report) {
         this.lastReport = report;
     }
+    describe() {
+        console.log(this.name);
+    }
     printAdmins() {
         console.log(this.admins);
     }
@@ -41,13 +41,14 @@ class ITDepartment extends Department {
         this.employees.push(employee);
     }
 }
-const accounting = new Department("Accounting");
-accounting.addEmployee("Jason");
-accounting.addEmployee("Anna");
-accounting.printEmployeeInformation();
+// const accounting = new Department("Accounting")
+// accounting.addEmployee("Jason")
+// accounting.addEmployee("Anna")
+// accounting.printEmployeeInformation()
 const informationTechnology = new ITDepartment(["Jason"]);
 informationTechnology.printAdmins();
 informationTechnology.LastReport = "New Report";
 console.log(informationTechnology.LastReport);
-const employee1 = Department.createEmployee('Tim');
+const employee1 = Department.createEmployee("Tim");
 console.log(employee1);
+informationTechnology.describe();
