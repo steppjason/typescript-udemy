@@ -1,68 +1,18 @@
-abstract class Department {
-	protected employees: string[] = []
+interface Person {
+	name: string
+	age: number
 
-	constructor(protected readonly name: string) {}
-
-	static createEmployee(name: string) {
-		return { name: name }
-	}
-
-	abstract describe(this: Department): void
-
-	addEmployee(employee: string) {
-		this.employees.push(employee)
-	}
-
-	printEmployeeInformation() {
-		console.log(this.employees.length)
-		console.log(this.employees)
-	}
+	greet(phrase: string): void
 }
 
-class ITDepartment extends Department {
-	private lastReport: string
+let user1: Person
 
-	get LastReport() {
-		if (this.lastReport) return this.lastReport
-		throw new Error("Last report not found")
-	}
-
-	set LastReport(report: string) {
-		this.lastReport = report
-	}
-
-	constructor(public admins: string[]) {
-		super("IT")
-		this.lastReport = ""
-	}
-
-	describe() {
-		console.log(this.name)
-	}
-
-	printAdmins() {
-		console.log(this.admins)
-	}
-
-	addEmployee(employee: string) {
-		if (this.name === "Jason") return
-
-		this.employees.push(employee)
-	}
+user1 = {
+	name: "Jason",
+	age: 36,
+	greet(phrase: string) {
+		console.log(phrase)
+	},
 }
 
-// const accounting = new Department("Accounting")
-// accounting.addEmployee("Jason")
-// accounting.addEmployee("Anna")
-
-// accounting.printEmployeeInformation()
-
-const informationTechnology = new ITDepartment(["Jason"])
-informationTechnology.printAdmins()
-informationTechnology.LastReport = "New Report"
-console.log(informationTechnology.LastReport)
-
-const employee1 = Department.createEmployee("Tim")
-console.log(employee1)
-
-informationTechnology.describe()
+user1.greet("Hello World")
