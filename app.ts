@@ -17,8 +17,21 @@ class Department {
 	}
 }
 
+class ITDepartment extends Department {
+	constructor(public admins: string[]) {
+		super("IT")
+	}
+
+	printAdmins() {
+		console.log(this.admins)
+	}
+}
+
 const accounting = new Department("Accounting")
 accounting.addEmployee("Jason")
 accounting.addEmployee("Anna")
 
 accounting.printEmployeeInformation()
+
+const informationTechnology = new ITDepartment(['Jason'])
+informationTechnology.printAdmins();
