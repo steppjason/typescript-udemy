@@ -4,6 +4,9 @@ class Department {
         this.name = name;
         this.employees = [];
     }
+    static createEmployee(name) {
+        return { name: name };
+    }
     describe() {
         console.log("Department: " + this.name);
     }
@@ -19,12 +22,12 @@ class ITDepartment extends Department {
     constructor(admins) {
         super("IT");
         this.admins = admins;
-        this.lastReport = '';
+        this.lastReport = "";
     }
     get LastReport() {
         if (this.lastReport)
             return this.lastReport;
-        throw new Error('Last report not found');
+        throw new Error("Last report not found");
     }
     set LastReport(report) {
         this.lastReport = report;
@@ -44,5 +47,7 @@ accounting.addEmployee("Anna");
 accounting.printEmployeeInformation();
 const informationTechnology = new ITDepartment(["Jason"]);
 informationTechnology.printAdmins();
-informationTechnology.LastReport = 'New Report';
+informationTechnology.LastReport = "New Report";
 console.log(informationTechnology.LastReport);
+const employee1 = Department.createEmployee('Tim');
+console.log(employee1);

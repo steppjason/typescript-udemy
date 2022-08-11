@@ -3,6 +3,11 @@ class Department {
 
 	constructor(protected readonly name: string) {}
 
+	static createEmployee(name: string)
+	{
+		return {name: name}
+	}
+
 	describe(this: Department) {
 		console.log("Department: " + this.name)
 	}
@@ -22,17 +27,16 @@ class ITDepartment extends Department {
 
 	get LastReport() {
 		if (this.lastReport) return this.lastReport
-		throw new Error('Last report not found')
+		throw new Error("Last report not found")
 	}
 
-	set LastReport(report: string)
-	{
+	set LastReport(report: string) {
 		this.lastReport = report
 	}
 
 	constructor(public admins: string[]) {
 		super("IT")
-		this.lastReport = ''
+		this.lastReport = ""
 	}
 
 	printAdmins() {
@@ -44,7 +48,6 @@ class ITDepartment extends Department {
 
 		this.employees.push(employee)
 	}
-
 }
 
 const accounting = new Department("Accounting")
@@ -55,5 +58,8 @@ accounting.printEmployeeInformation()
 
 const informationTechnology = new ITDepartment(["Jason"])
 informationTechnology.printAdmins()
-informationTechnology.LastReport = 'New Report'
+informationTechnology.LastReport = "New Report"
 console.log(informationTechnology.LastReport)
+
+const employee1 = Department.createEmployee('Tim')
+console.log(employee1)
