@@ -1,11 +1,11 @@
-let userInput: unknown
-let userName: string
+class Department {
+	name: string
 
-userInput = 5
-userInput = "Jason"
-
-function generateError(message: string, code: number) {
-	throw { message: message, errorCode: code }
+	constructor(name: string) {
+		this.name = name
+	}
 }
 
-generateError('An error occured', 500)
+const accounting = new Department('Accounting')
+
+console.log(accounting)

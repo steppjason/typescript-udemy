@@ -1,8 +1,8 @@
-var userInput;
-var userName;
-userInput = 5;
-userInput = "Jason";
-function generateError(message, code) {
-    throw { message: message, errorCode: code };
+"use strict";
+class Department {
+    constructor(name) {
+        this.name = name;
+    }
 }
-generateError('An error occured', 500);
+const accounting = new Department('Accounting');
+console.log(accounting);
