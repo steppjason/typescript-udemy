@@ -1,9 +1,8 @@
-interface ErrorContainer {
-	id: string
-	[key: string]: string
+function add(a: string, b: string): string
+function add(a: number, b: number): number
+{
+	return a + b
 }
 
-const error: ErrorContainer = {
-	id: "1",
-	email: "Not a valid email",
-}
+console.log(add(5, 5))
+console.log(add('5', '5'))

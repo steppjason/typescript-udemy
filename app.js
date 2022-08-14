@@ -1,5 +1,6 @@
 "use strict";
-const error = {
-    id: "1",
-    email: "Not a valid email",
-};
+function add(a, b) {
+    return a + b;
+}
+console.log(add(5, 5));
+console.log(add('5', '5'));
